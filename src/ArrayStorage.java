@@ -6,11 +6,13 @@ import java.util.List;
  */
 public class ArrayStorage {
     Resume[] storage = new Resume[10000];
+    int size;
 
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
         }
+        size = 0;
     }
 
     void save(Resume r) {
@@ -19,20 +21,22 @@ public class ArrayStorage {
 //        }
 //
         storage[size()] = r;
+        size++;
     }
 
     Resume get(String uuid) {
         Resume resume = null;
-
-        for (int i = 0; i < storage.length; i++) {
+  for (int i = 0; i < storage.length; i++) {
             if (storage[i] == null) break;
             if (storage[i].toString() == uuid) {
                 resume = storage[i];
                 break;
             }
         }
-        if (resume == null) resume = new Resume();
-        resume.uuid = "not in the database";
+        if (resume == null) {
+            resume = new Resume();
+            resume.uuid = "not in the database";
+        }
         return resume;
     }
 
@@ -50,26 +54,26 @@ public class ArrayStorage {
                 break;
             }
         }
+        size--;
     }
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        List list = new ArrayList();
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) list.add(storage[i]);
+        Resume[] resumes = new Resume[size];
+        for (int i = 0; i < size; i++) {
+            resumes[i] = storage[i];
         }
-        Resume[] resumes = new Resume[list.size()];
-        list.toArray(resumes);
         return resumes;
     }
 
     int size() {
-        int count = 0;
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) count++;
-        }
-        return count;
+//        int count = 0;
+//        for (int i = 0; i < storage.length; i++) {
+//            if (storage[i] != null) count++;
+//        }
+//
+        return size;
     }
 }
