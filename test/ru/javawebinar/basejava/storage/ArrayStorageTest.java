@@ -6,8 +6,4 @@ public class ArrayStorageTest extends AbstractArrayStorageTest {
         super(new ArrayStorage());
     }
 
-    @Override
-    public void saveOverflow() throws Exception {
-        super.saveOverflow();
-    }
 }
