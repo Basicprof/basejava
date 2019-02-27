@@ -51,7 +51,7 @@ public class MainCollections {
             System.out.println(map.get(uuid));
         }
 
-        for (Map.Entry<String, Resume> entry : map.entrySet()) {
+        for (Map.Entry<String, Resume> entry : map.entrySet()) {// Не рационально
             System.out.println(entry.getValue());
         }
 
