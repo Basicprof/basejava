@@ -14,13 +14,15 @@ public class XmlParser {
     public XmlParser(Class... classesToBeBound) {
         try {
             JAXBContext ctx = JAXBContext.newInstance(classesToBeBound);
+            //Создаем контекст по этим классам которые будем сирелизовать
 
-            marshaller = ctx.createMarshaller();
+            marshaller = ctx.createMarshaller();// Созадем маршаллер
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            // Созадем проперти форматируем красиво не в одну строчку
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 //            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 
-            unmarshaller = ctx.createUnmarshaller();
+            unmarshaller = ctx.createUnmarshaller();// онмаршалер просто
         } catch (JAXBException e) {
             throw new IllegalStateException(e);
         }

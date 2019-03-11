@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-@XmlRootElement //Для преобразования в XML
-@XmlAccessorType(XmlAccessType.FIELD)//Работай с полями смотри на поля (чтоб не писать гетеры и сетеры)
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)// Работай с полями смотри на поля а не на гетеры и сетеры
 public class Resume implements Comparable<Resume>, Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -38,6 +38,18 @@ public class Resume implements Comparable<Resume>, Serializable {
 
     public String getUuid() {
         return uuid;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Map<ContactType, String> getContacts() {
+        return contacts;
+    }
+
+    public Map<SectionType, Section> getSections() {
+        return sections;
     }
 
     public String getContact(ContactType type) {
