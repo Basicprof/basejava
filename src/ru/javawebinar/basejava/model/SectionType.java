@@ -1,3 +1,4 @@
+
 package ru.javawebinar.basejava.model;
 
 public enum SectionType {
@@ -18,4 +19,3 @@ public enum SectionType {
         return title;
     }
 }
-
